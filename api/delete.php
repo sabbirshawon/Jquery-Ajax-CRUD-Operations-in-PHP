@@ -1,19 +1,11 @@
 <?php
 
+require 'db_config.php';
 
- require 'db_config.php';
+$id  = $_POST["id"];
 
+$sql = "DELETE FROM tbl_items WHERE id = '".$id."'";
 
- $id  = $_POST["id"];
+$result = $mysqli->query($sql);
 
-
- $sql = "DELETE FROM tbl_items WHERE id = '".$id."'";
-
-
- $result = $mysqli->query($sql);
-
-
- echo json_encode([$id]);
-
-
-?>
+echo json_encode([$id]);
