@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 	manageData();
 
-	/* manage data list */
+	/* manage data list function start */
+
 	function manageData() {
 		$.ajax({
 			dataType: 'json',
@@ -32,7 +33,10 @@ $(document).ready(function() {
 		});
 	}
 
-	/* Get Page Data*/
+	/* manage data list function end */
+
+	/* Get Page Data function start */
+
 	function getPageData() {
 		$.ajax({
 			dataType: 'json',
@@ -43,7 +47,10 @@ $(document).ready(function() {
 		});
 	}
 
-	/* Add new Item table row */
+	/* Get Page Data function end */
+
+	/* Add new Item table row : manageRow function start */
+
 	function manageRow(data) {
 		var rows = '';
 		$.each(data, function(key, value) {
@@ -64,7 +71,10 @@ $(document).ready(function() {
 		$('tbody').html(rows);
 	}
 
-	/* Create new Item */
+	/* Add new Item table row : manageRow function end*/
+
+	/* Create new Item on click functions start*/
+
 	$('.crud-submit').click(function(e) {
 		e.preventDefault();
 		var form_action = $('#create-item')
@@ -101,7 +111,10 @@ $(document).ready(function() {
 		}
 	});
 
-	/* Remove Item */
+	/* Create new Item on click functions end*/
+
+	/* Remove Item on click function start */
+
 	$('body').on('click', '.remove-item', function() {
 		var id = $(this)
 			.parent('td')
@@ -122,7 +135,10 @@ $(document).ready(function() {
 		});
 	});
 
-	/* Edit Item */
+	/* Remove Item on click function end */
+
+	/* Edit Item on click function start */
+
 	$('body').on('click', '.edit-item', function() {
 		var id = $(this)
 			.parent('td')
@@ -148,7 +164,10 @@ $(document).ready(function() {
 			.val(id);
 	});
 
-	/* Updated new Item */
+	/* Edit Item on click function end */
+
+	/* Updated new Item on click function start */
+
 	$('.crud-submit-edit').click(function(e) {
 		e.preventDefault();
 		var form_action = $('#edit-item')
@@ -182,4 +201,7 @@ $(document).ready(function() {
 			alert('You are missing title or description.');
 		}
 	});
+
+	/* Updated new Item on click function end */
+
 });
